@@ -42,7 +42,7 @@ def train_autoencoder(latent_dim):
         ],
     )
 
-    if not os.path.isfile('checkpoint.ckpt'):
+    if os.path.isfile('checkpoint.ckpt'):
         print("Found pretrained model, loading...")
         model = Autoencoder.load_from_checkpoint('checkpoint.ckpt')
     else:

@@ -14,6 +14,9 @@ threshold_image = cv2.adaptiveThreshold(
     C=9
 )
 
-for image in [rgb_image, greyscale_image, resized_image, blur_image, threshold_image]:
-    plt.imshow(image)
+plt.imshow(rgb_image)
+plt.show()
+
+for image in [greyscale_image, resized_image, blur_image, threshold_image]:
+    plt.imshow(image, cmap='gray')
     plt.show()

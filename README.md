@@ -31,18 +31,22 @@ Therefore, it is extremely important to preprocess our data before feeding it in
 First let's take a look at original image:
 
 ![original](plots/original.png)
+
 Image consists of 224x224 pixels with RGB channels.
 Colors of these pixels are not too meaningful, so I converted it to greyscale (it helps to reduce channels and complexity of model):
 
 ![greyscale](plots/greyscale.png)
+
 In the next step I resized image to 32x32 pixels, crack is still visible, but it will reduce input size:
 
 ![resized](plots/resized.png)
 
 Another used transformation is Gaussian Blur, which allows remove the noise while protecting the original image:
+
 ![blur](plots/blur.png)
 
 In the end, I used Adaptive Threshold to clearly separate crack area:
+
 ![threshold](plots/threshold.png)
 
 The images prepared in this way will be used in the network.
@@ -56,7 +60,9 @@ so I used autoencoder deep neural network to compress the image representation.
 In this repository, I added [checkpoint file](checkpoint.ckpt), which automatically loads trained weights.  
 
 In the picture below, we can see how trained autoencoder reconstruct cracks (from test data) based on a vector with 128 features.
+
 ![reconstructions](plots/reconstructions.png)
+
 Such vector represents most important image features and thanks to the reduced size clustering is possible.
 
 ### Clustering
